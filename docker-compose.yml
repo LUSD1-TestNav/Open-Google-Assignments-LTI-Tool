@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    container_name: open-google-assignments-lti
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/open-assignments
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: open-assignments-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
