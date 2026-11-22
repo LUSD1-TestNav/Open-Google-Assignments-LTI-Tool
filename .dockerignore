@@ -1,0 +1,30 @@
+# Dependencies (reinstalled cleanly inside the container)
+node_modules
+client/node_modules
+server/node_modules
+
+# Compiled build artifacts
+dist
+client/dist
+client/.angular
+
+# Environment & local secrets (passed via env_file at runtime instead of baked into image)
+.env
+.env.*
+!.env.example
+
+# Version control & editor files
+.git
+.gitignore
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+
+# Logs & test coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage
+*.log
